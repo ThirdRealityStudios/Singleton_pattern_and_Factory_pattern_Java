@@ -7,37 +7,39 @@ import java.awt.*;
 
 public class IDEFrame extends JFrame
 {
+    // Variable to realize the concept on Singleton.
+    private static IDEFrame ide;
+
     private IDEFrame()
     {
-        initWindow("Java");
+        initWindow();
+
+        // TODO Add components to development.
     }
 
     /**
-     * Singleton method to initialize major window settings.
-     *
-     * @param programmingLanguageName Programming language that is supported by this IDE.
+     * Initialize major window settings.
      */
-    private void initWindow(String programmingLanguageName)
+    private void initWindow()
     {
-        // Singleton part here to check for unintialized variable.
-        if(programmingLanguageName == null)
-        {
-            // Second singleton part here to initialize the missing value.
-            programmingLanguageName = "unknown programming language?";
-        }
-
-        // Now it is safe to use the variable 'programmingLanguageName'
-
-        setTitle("Integrated Development Environment (for " + programmingLanguageName + ")");
-
+        setTitle("Integrated Development Environment (for Java)");
         setMinimumSize(new Dimension(800, 600));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**
-     * Factory method to encapsulate the constructor.
+     * Factory method (= hidden constructor) with a Singleton pattern (= always exact one instance required) to encapsulate the constructor.
      */
     public static IDEFrame getInstance()
     {
-        return new IDEFrame();
+        // Singleton part to check for uninitialized instance.
+        if(ide == null)
+        {
+            // Factory method part to call the private constructor.
+            ide = new IDEFrame();
+        }
+
+        // Second singleton part to always return the same exact one instance.
+        return ide;
     }
 }

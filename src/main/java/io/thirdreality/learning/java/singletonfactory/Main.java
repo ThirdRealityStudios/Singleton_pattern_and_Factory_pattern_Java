@@ -2,13 +2,16 @@ package io.thirdreality.learning.java.singletonfactory;
 
 public class Main
 {
-    private static IDEFrame ide;
+    private static IDEFrame ide0, ide1;
 
     public static void main(String[] args)
     {
-        ide = IDEFrame.getInstance();
+        ide0 = IDEFrame.getInstance();
+        ide1 = IDEFrame.getInstance();
 
-        ide.setVisible(true);
+        // TODO Make JUnit assertion to assertEquals(ide0.hashcode(), ide1.hashcode());
+
+        ide0.setVisible(true);
     }
 }
 
