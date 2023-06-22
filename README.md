@@ -1,4 +1,4 @@
-# Single pattern and Factory pattern in Java
+# Singleton pattern and Factory pattern in Java
 
 This code (with the simple example of an IDE implementation)
 tries to illustrate the correct use of
